@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<!--link rel="shortcut icon" href="{#% static "img/icono_escritorio.png" %#}"/-->
+    <!--link rel="stylesheet" href="{#% static "css/xxxxxx.css" %#}"-->
+    <!--script type="text/javascript" src="{#% static "js/xxxxx.js" %#}"> </script-->
+    
+	{% block assets %}	{% endblock assets %}
+    {% if title_modulo %} <title>{{ title_modulo }}</title>
+    {% else %} <title>{{ title }}</title>
+    {% endif %}
+</head>
+<body>
+	<h1>Mi primer template en django</h1>
+	
+</body>
+</html>
