@@ -9,6 +9,7 @@ from .models import (Category, Product)
 
 # Create your views here.
 
+
 def inicial_index(request):
     product = Product.objects.order_by('id')
     template = loader.get_template('products/prindex.html')
@@ -19,11 +20,12 @@ def inicial_index(request):
     }
     return HttpResponse(template.render(context, request))
 
+
 class ProductListView(ListView):
     model = Product
     template_name = 'products/prList.html'
-    
-    #template_name = "books/publisher_detail.html"
+
+#    template_name = "books/publisher_detail.html"
 
 #     def get(self, request, *args, **kwargs):
 #         self.object = self.get_object(queryset=Product.objects.all())
@@ -37,7 +39,3 @@ class ProductListView(ListView):
 
 #     def get_queryset(self):
 #         return self.object.book_set.all()
-    
-    
-    
-    

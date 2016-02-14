@@ -6,7 +6,8 @@ from . import views as prViews
 
 urlpatterns = [
     url(r'^$', prViews.inicial_index, name='index'),
-    url(r'^lista-productos/$', prViews.ProductListView.as_view(), name='lista-productos'),
+    url(r'^lista-productos/$', prViews.ProductListView.as_view(),
+        name='lista-productos'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
