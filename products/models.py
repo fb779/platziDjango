@@ -21,7 +21,7 @@ class Category(models.Model):
 class Product(models.Model):
     pr_name = models.CharField(max_length=255)
     pr_description = models.TextField(max_length=4000, null=True)
-    pr_image = models.ImageField(upload_to="imageProduct", null=True)
+    pr_image = models.ImageField(upload_to="imageProduct", blank=True)
     pr_category = models.ForeignKey(Category)
     #pr_company = models.ForeignKey()
     

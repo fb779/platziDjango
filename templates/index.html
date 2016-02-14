@@ -15,7 +15,17 @@
     {% endif %}
 </head>
 <body>
-	<h1>Mi primer template en django</h1>
+	<div id="cabecera">
+		<h1>Mi primer template en django</h1> 
+		{% block cabecera %} {% endblock%}
+	</div>
 	
+	<div id="cuerpo">
+		{% block espaciotrabajo %} {% endblock%}
+	</div>
+	
+	<div id="pie_pagina"> 
+		{% block piepagina %} {% endblock%}
+	</div>
 </body>
 </html>

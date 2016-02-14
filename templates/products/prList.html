@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block cabecera %}
+	<h3>{{ seconTitle }}</h3>
+{% endblock%}
+
+{% block espaciotrabajo %}
+	{% if object_list %}
+		<ul>
+		{% for pr in object_list %}
+			<li> 
+				<p>Nombre: {{ pr.pr_name }} </p>
+				<p>Descripción: {{ pr.pr_description }} </p>
+				<p>Categoria: {{ pr.pr_category }} </p>
+				{#% if  pr.image.url %#}
+					<p>Imagen <img src="{% static pr.pr_image.url %}" /> </p>
+				{#% endif %#}
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No existen productos creados....</p>
+	{% endif %}
+{% endblock%}

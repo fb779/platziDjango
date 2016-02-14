@@ -112,6 +112,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Manejo de templates por easy pajax
+TEMPLATE_CONTEXT_PROCESSORS = ('django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',)
+
+DEFAULT_PJAXR_TEMPLATE = "django_pjaxr/pjaxr.html"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
