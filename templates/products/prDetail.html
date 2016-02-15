@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block cabecera %}
+	<h3>{{ seconTitle }}</h3>
+{% endblock%}
+
+{% block espaciotrabajo %}
+	<p> <a href="{% url "productos:list" %}">Listado Productos</a> </p>
+	{% if product %}
+		<p>Nombre: {{ product.pr_name }} </p>
+		<p>Descripción: {{ object.pr_description }} </p>
+		<p>Categoria: {{ object.pr_category.ct_name }} | {{ object.pr_category.ct_description }} </p>
+		{#% if  pr.image.url %#}
+			<p>Imagen <img src="{% static object.pr_image.url %}" /> </p>
+		{#% endif %#}
+	{% else %}
+		<p>Error no se encontro el producto seleccionado....</p>
+	{% endif %}
+{% endblock%}

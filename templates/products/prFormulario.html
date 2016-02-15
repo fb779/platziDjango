@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block cabecera %}
+	<h3>{{ seconTitle }}</h3>
+{% endblock%}
+
+{% block espaciotrabajo %}
+	<p> <a href="{% url "productos:list" %}">Listado Productos</a> </p>
+	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" value="{{ bottonTitle }}" />
+	    <!--input type="submit" value="Guardar" /-->
+	</form>
+{% endblock%}

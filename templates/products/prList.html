@@ -6,20 +6,46 @@
 {% endblock%}
 
 {% block espaciotrabajo %}
+	<p><a href="{% url "productos:new" %}">Nuevo Producto</a></p>
 	{% if object_list %}
+		
 		<ul>
 		{% for pr in object_list %}
-			<li> 
+			<li>
+				<p> 
+					<a href="{% url "productos:detail" pr.id %}">Ver</a> | 
+					<a href="{% url "productos:edit" pr.id %}">Editar</a>  | 
+ 					<a href="{% url "productos:delete" pr.id %}">Eliminar</a>
+				</p>
 				<p>Nombre: {{ pr.pr_name }} </p>
 				<p>Descripción: {{ pr.pr_description }} </p>
 				<p>Categoria: {{ pr.pr_category }} </p>
-				{#% if  pr.image.url %#}
+				{% if  pr.pr_image %}
 					<p>Imagen <img src="{% static pr.pr_image.url %}" /> </p>
-				{#% endif %#}
+				{% else %}
+					<p>Imagen N/A </p>
+				{% endif %}
 			</li>
 		{% endfor %}
 		</ul>
 	{% else %}
 		<p>No existen productos creados....</p>
 	{% endif %}
+	
+	
+	<div class="pagination">
+	    <span class="step-links">
+	        {% if page_obj.has_previous %}
+	            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+	        {% endif %}
+	
+	        <span class="current">
+	            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+	        </span>
+	
+	        {% if page_obj.has_next %}
+	            <a href="?page={{ page_obj.next_page_number }}">next</a>
+	        {% endif %}
+	    </span>
+	</div>
 {% endblock%}
