@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from products import urls as prUrls 
+from products import urls as prUrls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

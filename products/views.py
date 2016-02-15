@@ -3,8 +3,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, DetailView
-#from django.views.generic.detail import DetailView
-from django.views.generic.edit import (CreateView, UpdateView , DeleteView)
+from django.views.generic.edit import (CreateView, UpdateView, DeleteView)
 
 from .forms import ProductForm, CategoryForm
 from .models import Category, Product
@@ -12,6 +11,7 @@ from .models import Category, Product
 # Create your views here.
 
 title = 'Ejercicio Django con class-base views'
+
 
 def inicial_index(request):
     product = Product.objects.order_by('id')
@@ -46,7 +46,7 @@ class ProductListView(ListView):
 class ProductDetail(DetailView):
     model = Product
     template_name = 'products/prDetail.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super(ProductDetail, self).get_context_data(**kwargs)
         context['title'] = title
@@ -59,7 +59,7 @@ class ProductCreat(CreateView):
     template_name = 'products/prFormulario.html'
     success_url = reverse_lazy('productos:list')
     fields = ['pr_name', 'pr_description', 'pr_image', 'pr_category']
-    
+
     def get_context_data(self, **kwargs):
         context = super(ProductCreat, self).get_context_data(**kwargs)
         context['title'] = title
@@ -67,12 +67,13 @@ class ProductCreat(CreateView):
         context['bottonTitle'] = 'Crear Producto'
         return context
 
+
 class ProducrtUpdate(UpdateView):
     model = Product
     template_name = 'products/prFormulario.html'
     success_url = reverse_lazy('productos:list')
     fields = ['pr_name', 'pr_description', 'pr_image', 'pr_category']
-    
+
     def get_context_data(self, **kwargs):
         context = super(ProducrtUpdate, self).get_context_data(**kwargs)
         context['title'] = title
@@ -86,7 +87,7 @@ class ProductDelete(DeleteView):
     template_name = 'products/prDelete.html'
     success_url = reverse_lazy('productos:list')
 #    fields = ['pr_name', 'pr_description', 'pr_image', 'pr_category']
-    
+
     def get_context_data(self, **kwargs):
         context = super(ProductDelete, self).get_context_data(**kwargs)
         context['title'] = title
