@@ -50,6 +50,8 @@ local.properties
 ### Sass ###
 .sass-cache/
 *.css.map
+#sass/
+#config.rb
 
 
 ### Django ###
@@ -59,4 +61,4 @@ local.properties
 __pycache__/
 #local_settings.py
 *.sqlite3
-media/*
+media/

@@ -1,0 +1,60 @@
+/* line 3, ../sass/stylePlatzi.scss */
+body {
+  font-size: 16px;
+  font-family: "arial";
+}
+
+/* line 8, ../sass/stylePlatzi.scss */
+header {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  border: none;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: url("http://www.fotonostra.com/fotografia/fotos/fotografiarpaisajes2.jpg");
+  background-position: 50% 50%;
+  -moz-background-origin: padding;
+  -o-background-origin: padding-box;
+  -webkit-background-origin: padding;
+  background-origin: padding-box;
+  -moz-background-clip: border;
+  -o-background-clip: border-box;
+  -webkit-background-clip: border;
+  background-clip: border-box;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -moz-box-shadow: 10px 10px 0 0 rgba(17, 124, 224, 0.3);
+  -webkit-box-shadow: 10px 10px 0 0 rgba(17, 124, 224, 0.3);
+  box-shadow: 10px 10px 0 0 rgba(17, 124, 224, 0.3);
+}
+
+/* line 28, ../sass/stylePlatzi.scss */
+.enjoy-css {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  overflow: auto;
+  border: none;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: white;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(201, 159, 96, 0.3);
+  -webkit-box-shadow: 5px 5px 0 0 rgba(17, 124, 224, 0.3);
+  box-shadow: 5px 5px 0 0 rgba(17, 124, 224, 0.3);
+}

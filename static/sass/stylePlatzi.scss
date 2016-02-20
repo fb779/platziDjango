@@ -1,0 +1,46 @@
+@import "_base";
+
+body {
+  font-size: $size_font;
+  font-family: $font-family;
+}
+
+header{
+  @include box-sizing(border-box);
+  height: 100%;
+  padding: 20px;
+  //overflow: hidden;
+  border: none;
+  @include border-radius(20px);
+  //font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  @include background(url("http://www.fotonostra.com/fotografia/fotos/fotografiarpaisajes2.jpg"));
+  background-position: 50% 50%;
+  @include background-origin(padding-box);
+  @include background-clip(border-box);
+  @include background-size(cover);
+  @include box-shadow(10px 10px 0 0 rgba(17,124,224,0.3) );
+}
+
+.enjoy-css {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  overflow: auto;
+  border: none;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(201,159,96,0.3);
+  -webkit-box-shadow: 5px 5px 0 0 rgba(17,124,224,0.3) ;
+  box-shadow: 5px 5px 0 0 rgba(17,124,224,0.3) ;
+}
