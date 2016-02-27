@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import django.contrib.auth.password_validation as passValidator
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +27,6 @@ SECRET_KEY = '_&ni_siurr6a(y&6w7nbt)i+(n0p2bjk03jwa*8^+4c=whb=04'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -80,28 +78,32 @@ WSGI_APPLICATION = 'platziDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'tenant_schemas.postgresql_backend',  # Manejador de DB
+            'NAME': 'evolucion_dental',     # Nombre de DB
+            'USER': 'postgres',             # Usuario de la base de datos
+            'PASSWORD': 'root',             # Clave del usuario
+            'HOST': '127.0.0.1',            # Ip de la maquina de coneccion
+            'PORT': '5432',                 # Puerto de coneccion del motor DB
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-#
-# AUTH_PASSWORD_VALIDATORS = [
-#     {'NAME': passValidator.UserAttributeSimilarityValidator},
-#     {'NAME': passValidator.MinimumLengthValidator},
-#     {'NAME': passValidator.CommonPasswordValidator},
-#     {'NAME': passValidator.NumericPasswordValidator},
-# ]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttribute' +
+        'SimilarityValidator',
     },
     {
         'NAME':
@@ -113,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME':
         'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -145,5 +148,5 @@ else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
-#############
+
 MEDIA_URL = '/media/'
