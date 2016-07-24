@@ -6,25 +6,25 @@
 {% endblock%}
 
 {% block espaciotrabajo %}
-	<p><a href="{% url "productos:new" %}">Nuevo Producto</a></p>
+	<p><a href="{% url "productos:new" %}" class="button">Nuevo Producto</a></p>
 	{% if object_list %}
 
 		<ul>
 		{% for pr in object_list %}
 			<li>
+				<p>Nombre: {{ pr.name }} </p>
+				<p>Descripción: {{ pr.description }} </p>
+				{% if  pr.category %}
+					<p>Categoria: {{ pr.category }} </p>
+				{% endif %}
+				{% if  pr.image %}
+					<p> <img src="{% static pr.image.url %}" /> </p>
+				{% endif %}
 				<p>
 					<a href="{% url "productos:detail" pr.id %}">Ver</a> |
 					<a href="{% url "productos:edit" pr.id %}">Editar</a>  |
  					<a href="{% url "productos:delete" pr.id %}">Eliminar</a>
 				</p>
-				<p>Nombre: {{ pr.pr_name }} </p>
-				<p>Descripción: {{ pr.pr_description }} </p>
-				<p>Categoria: {{ pr.pr_category }} </p>
-				{% if  pr.pr_image %}
-					<p>Imagen <img src="{% static pr.pr_image.url %}" /> </p>
-				{% else %}
-					<p>Imagen N/A </p>
-				{% endif %}
 			</li>
 			<br/>
 		{% endfor %}
