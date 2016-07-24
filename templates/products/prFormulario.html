@@ -8,7 +8,19 @@
 {% block espaciotrabajo %}
 	<p> <a href="{% url "productos:list" %}">Listado Productos</a> </p>
 	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
-	    {{ form.as_p }}
+	    {#{ form.as_p }#}
+	   <div class="text-danger">
+	   {{ form.name.label}} {{ form.name}} {{ form.name.errors}}
+	   </div>
+	   <div>
+	   {{form.description.label}} {{form.description}} {{form.description.errors}}
+	   </div>
+	   <div>
+	   {{form.category.label}} {{form.category}} {{form.category.errors}}
+	   </div>
+	   <div>
+	   {{form.image.label}} {{form.image}} {{form.image.errors}}
+	   </div>
 	    <input type="submit" value="{{ bottonTitle }}" />
 	    <!--input type="submit" value="Guardar" /-->
 	</form>

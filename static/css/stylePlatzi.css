@@ -66,3 +66,18 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 48, ../sass/stylePlatzi.scss */
+img {
+  width: 150px;
+}
+
+/* line 52, ../sass/stylePlatzi.scss */
+li {
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 2px;
+}

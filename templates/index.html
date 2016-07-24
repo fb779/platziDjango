@@ -6,13 +6,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<!--link rel="shortcut icon" href="{#% static "img/icono_escritorio.png" %#}"/-->
+	<!-- link rel="stylesheet" href="{% static "css/foundation.css" %}"/-->
+	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
 	<link rel="stylesheet" href="{% static "css/stylePlatzi.css" %}">
-  <!--script type="text/javascript" src="{#% static "js/xxxxx.js" %#}"> </script-->
 
 	{% block assets %}	{% endblock assets %}
-  {% if title_modulo %} <title>{{ title_modulo }}</title>
-  {% else %} <title>{{ title }}</title>
-  {% endif %}
+
+	{% if title_modulo %} <title>{{ title_modulo }}</title>
+	{% else %} <title>{{ title }}</title>
+	{% endif %}
 </head>
 <body>
 	<div id="cabecera">
@@ -20,12 +22,18 @@
 		{% block cabecera %} {% endblock%}
 	</div>
 
-	<div id="cuerpo">
+	<div id="cuerpo" class="callout secondary">
 		{% block espaciotrabajo %} {% endblock%}
 	</div>
 
 	<div id="pie_pagina">
 		{% block piepagina %} {% endblock%}
 	</div>
+	<script type="text/javascript" src="{% static "js/jquery-1.12.0.min.js" %}"> </script>
+	<script type="text/javascript" src="{% static "js/vendor/jquery.min.js" %}"></script>
+  	<script type="text/javascript" src="{% static "js/vendor/what-input.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/foundation.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jqueryPlatzi.js" %}"> </script>
 </body>
 </html>

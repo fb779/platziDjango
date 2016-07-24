@@ -3,11 +3,12 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+upload = "imageProduct"
 
 
 class Category(models.Model):
     ct_name = models.CharField(max_length=255)
-    ct_description = models.TextField(max_length=200, null=True)
+    ct_description = models.TextField(max_length=2000, blank=True)
 
     class Meta:
         ordering = ('id',)
@@ -20,17 +21,21 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    pr_name = models.CharField(max_length=255)
-    pr_description = models.TextField(max_length=4000, null=True)
-    pr_image = models.ImageField(upload_to="imageProduct", blank=True)
-    pr_category = models.ForeignKey(Category)
-#    pr_company = models.ForeignKey()
+    name = models.CharField(max_length=255, blank=True)
+    description = models.TextField(max_length=4000, blank=True)
+    image = models.ImageField(upload_to=upload, blank=True)
+    category = models.ForeignKey(Category, blank=True, null=True)
 
     class Meta:
         ordering = ('id',)
 
     def __unicode__(self):
-        return "%s" % self.pr_name
+        return "%s" % self.name
 
 #     def __str__(self):
 #         return "%s" % self.pr_name
+
+
+class ImageProduct(models.Model):
+    producto = models.ForeignKey(Product)
+    image = models.ImageField(upload_to=upload)
