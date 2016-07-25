@@ -4,6 +4,7 @@ from django import forms
 from django.forms import ModelForm
 from .models import (Category, Product, ImageProduct)
 
+cl_inputs = 'form-control'
 
 
 class ProductForm(ModelForm):
@@ -17,11 +18,16 @@ class ProductForm(ModelForm):
             'name': forms.TextInput(attrs = {
                 'id': 'nomProduct',
                 'placeholder': u'Nombres completos',
-                'class': 'center' 
+                'class': cl_inputs 
             }),
             'description': forms.Textarea(attrs={
                 'id': 'desProduct',
-                'placeholder': 'Digitar una descricion completa del producto'
+                'placeholder': 'Digitar una descricion completa del producto',
+                'class': cl_inputs
+            }),
+            'category': forms.Select(attrs={
+                'id': 'catProduct',
+                'class': cl_inputs
             })
         }
     
@@ -30,11 +36,11 @@ class ProductForm(ModelForm):
         nombre = self.cleaned_data.get('name')
         descri = self.cleaned_data.get('description')
 
-        if nombre == '':
-            self._errors['name'] = self.error_class(['Este campo es obligatorio.'])
-        
-        if descri == '':
-            self._errors['description'] = self.error_class(['El campo de descripcion es obligatorio'])
+#         if nombre == '':
+#             self._errors['name'] = self.error_class(['Este campo es obligatorio.'])
+#         
+#         if descri == '':
+#             self._errors['description'] = self.error_class(['El campo de descripcion es obligatorio'])
 
         return self.cleaned_data
 

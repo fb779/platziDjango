@@ -21,10 +21,10 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255, blank=True)
+    name = models.CharField(max_length=255, blank=False)
     description = models.TextField(max_length=4000, blank=True)
-    image = models.ImageField(upload_to=upload, blank=True)
-    category = models.ForeignKey(Category, blank=True, null=True)
+    image = models.ImageField(upload_to=upload, blank=False)
+    category = models.ForeignKey(Category, blank=False, null=True)
 
     class Meta:
         ordering = ('id',)

@@ -7,8 +7,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView)
 from django.views.generic.edit import (CreateView, UpdateView, DeleteView)
 
-from .forms import (ProductForm, CategoryForm)
-from .models import (Category, Product, ImageProduct)
+from .forms import (ProductForm)
+from .models import (Product, ImageProduct)
 
 # Create your views here.
 

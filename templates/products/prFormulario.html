@@ -6,22 +6,45 @@
 {% endblock%}
 
 {% block espaciotrabajo %}
-	<p> <a href="{% url "productos:list" %}">Listado Productos</a> </p>
+	<div class="row">
+		<div class="form-group col-xs-12">
+			<a class="btn btn-default " href="{% url "productos:list" %}">Listado Productos</a>
+		</div>
+	</div>
+	
 	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
-	    {#{ form.as_p }#}
-	   <div class="text-danger">
-	   {{ form.name.label}} {{ form.name}} {{ form.name.errors}}
-	   </div>
-	   <div>
-	   {{form.description.label}} {{form.description}} {{form.description.errors}}
-	   </div>
-	   <div>
-	   {{form.category.label}} {{form.category}} {{form.category.errors}}
-	   </div>
-	   <div>
-	   {{form.image.label}} {{form.image}} {{form.image.errors}}
-	   </div>
-	    <input type="submit" value="{{ bottonTitle }}" />
-	    <!--input type="submit" value="Guardar" /-->
+		<div class="row">
+			<div class="form-group col-xs-3">
+				<label for=""> {{ form.name.label }} </label>
+				{{ form.name.errors }} {{ form.name }} 
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-5">
+				<label for=""> {{form.description.label}} </label>
+				{{form.description.errors}}
+				{{form.description}} 
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-3">
+				<label for=""> {{form.category.label}} </label>
+				{{form.category.errors}} {{form.category}} 
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-3">
+				<label for=""> {{form.image.label}} </label>
+				{{form.image.errors}} {{form.image}} 
+			</div>
+			
+			 <!--input type="submit" value="Guardar" /-->
+		 </div>
+		 <div class="row">
+		 	<div class="form-group col-xs-12">
+		 	 	<input type="submit" class="btn btn-default" value="{{ bottonTitle }}" />
+		 	 </div>
+		 </div>
 	</form>
+	
 {% endblock%}
