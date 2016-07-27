@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from home import urls as hoUrls
 from products import urls as prUrls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include(prUrls, namespace='productos')),
+    url(r'^$', include(hoUrls, namespace='home') ),
+    url(r'^productos/', include(prUrls, namespace='productos') ),
+    url(r'^admin/', admin.site.urls ),
 
     # url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
     #     {'document_root': settings.MEDIA_ROOT, }),

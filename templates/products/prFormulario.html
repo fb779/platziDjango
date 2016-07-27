@@ -3,12 +3,14 @@
 
 {% block cabecera %}
 	<h3>{{ seconTitle }}</h3>
-{% endblock%}
+{% endblock %}
 
 {% block espaciotrabajo %}
 	<div class="row">
 		<div class="form-group col-xs-12">
-			<a class="btn btn-default " href="{% url "productos:list" %}">Listado Productos</a>
+			<a class="btn btn-default " href="{% url "productos:list" %}"> 
+				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Listado Productos
+			</a>
 		</div>
 	</div>
 	
@@ -47,4 +49,4 @@
 		 </div>
 	</form>
 	
-{% endblock%}
+{% endblock %}

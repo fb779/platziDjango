@@ -25,7 +25,15 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="container">
+		<row>
+			<col-xs-12>
+				{% block menu %}
+					{% include "menu.html" %}
+				{% endblock %}
+			</col-xs-12>
+		</row>
+	</div>
 	<div class="container">
 		{% block espaciotrabajo %} {% endblock%}
 	</div>
@@ -37,8 +45,9 @@
 				{% block piepagina %} {% endblock%}
 			</div>
 		</div>
-		
 	</div>
+
+	<!-- Configuracion de javascripts -->
 	<script type="text/javascript" src="{% static "js/jquery-1.12.0.min.js" %}"> </script>
 	<!-- Configuracion para fundation framework ->
 	<script type="text/javascript" src="{% static "js/vendor/jquery.min.js" %}"></script>

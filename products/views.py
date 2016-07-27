@@ -21,7 +21,7 @@ def inicial_index(request):
     context = {
         'title': 'Ejercicio DJango',
         'seconTitle': 'Modulo Productos',
-        'product': product
+        #'product': product
     }
     return HttpResponse(template.render(context, request))
 
