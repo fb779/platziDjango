@@ -22,7 +22,7 @@ from home import urls as hoUrls
 from products import urls as prUrls
 
 urlpatterns = [
-    url(r'^$', include(hoUrls, namespace='home') ),
+    url(r'^', include(hoUrls, namespace='home') ),
     url(r'^productos/', include(prUrls, namespace='productos') ),
     url(r'^admin/', admin.site.urls ),
 

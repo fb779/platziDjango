@@ -21,28 +21,38 @@
 		<div class="row">
 			<div class="col-xs-12 well">
 				<h1>Mi primer Ejercicio en django</h1>
-				{% block cabecera %} {% endblock%}
+				{% block cabecera %} {% endblock %}
 			</div>
 		</div>
 	</div>
 	<div class="container">
-		<row>
-			<col-xs-12>
-				{% block menu %}
-					{% include "menu.html" %}
-				{% endblock %}
-			</col-xs-12>
-		</row>
+		{% block menu %}
+			{% include "menu.html" %}
+		{% endblock %}
+		</div>
 	</div>
 	<div class="container">
-		{% block espaciotrabajo %} {% endblock%}
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						{% block sitebar %} {% endblock %}
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-9">
+				{% block espaciotrabajo %} {% endblock %}		
+			</div>
+		</div>
+		
+		
 	</div>
 
 	<div class="container-fluid">
 		<div class="row well">
 			<div class="col-xs-12">Espacio para la informaciondel pie de pagina y contacto</div>
 			<div class="col-xs-12">
-				{% block piepagina %} {% endblock%}
+				{% block piepagina %} {% endblock %}
 			</div>
 		</div>
 	</div>

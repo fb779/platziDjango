@@ -15,15 +15,15 @@ from .models import (Product, ImageProduct)
 title = 'Django - class-base views'
 
 
-def inicial_index(request):
-    product = Product.objects.order_by('id')
-    template = loader.get_template('products/prindex.html')
-    context = {
-        'title': 'Ejercicio DJango',
-        'seconTitle': 'Modulo Productos',
-        #'product': product
-    }
-    return HttpResponse(template.render(context, request))
+# def inicial_index(request):
+#     product = Product.objects.order_by('id')
+#     template = loader.get_template('products/prindex.html')
+#     context = {
+#         'title': 'Ejercicio DJango',
+#         'seconTitle': 'Modulo Productos',
+#         #'product': product
+#     }
+#     return HttpResponse(template.render(context, request))
 
 
 class ProductView(TemplateView):
@@ -31,6 +31,7 @@ class ProductView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductView, self).get_context_data(*args, **kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Vista generica para visualizar información'
         return context
@@ -53,6 +54,7 @@ class ProductListView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Listado de productos'
         return context
@@ -64,6 +66,7 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetail, self).get_context_data(*args, **kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Detalle del producto'
         context['gallery'] = ImageProduct.objects.filter(producto=self.object)
@@ -86,6 +89,7 @@ class ProductCreat(CreateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductCreat, self).get_context_data(*args,**kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Crear nuevo producto'
         context['bottonTitle'] = 'Crear Producto'
@@ -101,6 +105,7 @@ class ProducrtUpdate(UpdateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProducrtUpdate, self).get_context_data(*args,**kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Editar producto'
         context['bottonTitle'] = 'Editar Producto'
@@ -115,6 +120,7 @@ class ProductDelete(DeleteView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDelete, self).get_context_data(*args,**kwargs)
+        context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Eliminar producto'
         context['bottonTitle'] = 'Eliminar Producto'

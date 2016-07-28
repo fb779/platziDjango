@@ -28,7 +28,7 @@ class ProductForm(ModelForm):
             'category': forms.Select(attrs={
                 'id': 'catProduct',
                 'class': cl_inputs
-            })
+            }),
         }
     
     def clean(self):

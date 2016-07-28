@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # "easy_pjax",      # app easy-pjax
 ]
 
 MIDDLEWARE_CLASSES = [
+    # "easy_pjax.middleware.UnpjaxMiddleware",      # app easy-pjax
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +65,9 @@ TEMPLATES = [
         ],
         'APP_DIRS': True,
         'OPTIONS': {
+            # "builtins": [     # app easy-pjax
+            #     "easy_pjax.templatetags.pjax_tags"
+            # ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
