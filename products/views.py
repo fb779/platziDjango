@@ -74,11 +74,11 @@ class ProductDetail(DetailView):
 
 
 class ProductCreat(CreateView):
-    model = Product
-    template_name = 'products/prFormulario.html'
-    success_url = reverse_lazy('productos:list')
+    #model = Product
     #fields = ['name', 'description', 'category', 'image']
     form_class = ProductForm
+    template_name = 'products/prFormulario.html'
+    success_url = reverse_lazy('productos:list')
     
 #     def form_valid(self, form):
 #         #jaja = 'Hola qui estamoss'
@@ -98,10 +98,11 @@ class ProductCreat(CreateView):
 
 class ProducrtUpdate(UpdateView):
     model = Product
+    form_class = ProductForm
+    #fields = ['name', 'description', 'image', 'category']
     template_name = 'products/prFormulario.html'
     success_url = reverse_lazy('productos:list')
-    #fields = ['name', 'description', 'image', 'category']
-    form_class = ProductForm
+    
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProducrtUpdate, self).get_context_data(*args,**kwargs)
