@@ -18,7 +18,7 @@ class ProductForm(ModelForm):
             'name': forms.TextInput(attrs = {
                 'id': 'nomProduct',
                 'placeholder': u'Nombres completos',
-                'class': cl_inputs 
+                'class': cl_inputs
             }),
             'description': forms.Textarea(attrs={
                 'id': 'desProduct',
@@ -29,8 +29,14 @@ class ProductForm(ModelForm):
                 'id': 'catProduct',
                 'class': cl_inputs
             }),
+            'image': '',
+            # 'image': forms.FileInput(attrs={
+            #     'id': 'img',
+            #     'class': cl_inputs,
+            #
+            # }),
         }
-    
+
     def clean(self):
         self.cleaned_data = super(ProductForm, self).clean()
         nombre = self.cleaned_data.get('name')
@@ -38,7 +44,7 @@ class ProductForm(ModelForm):
 
 #         if nombre == '':
 #             self._errors['name'] = self.error_class(['Este campo es obligatorio.'])
-#         
+#
 #         if descri == '':
 #             self._errors['description'] = self.error_class(['El campo de descripcion es obligatorio'])
 

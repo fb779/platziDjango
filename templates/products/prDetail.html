@@ -1,52 +1,51 @@
-{% extends "index.html"|pjax:request %}
+{% extends "products/prIndex.html"|pjax:request %}
 {% load static %}
 
-{% block cabecera %}
-	<h3>{{ seconTitle }}</h3>
-{% endblock%}
 
 {% block espaciotrabajo %}
-	<div class="row">
-		<div class="form-group col-xs-12">
-			<a class="btn btn-default " href="{% url "productos:list" %}"> 
-				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Listado Productos
-			</a>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-		{% if product %}
-			<div class="panel panel-default">
-			  <div class="panel-heading text-center">
-			  	<p class="panel-title">Nombre: {{ product.name }} </p>
-			  </div>
-			  <div class="panel-body">
-			  	<p>Descripción: {{ object.description }} </p>
-				{% if object.category %}
-					<p>Categoria: {{ object.category.ct_name }} </p>
-				{% endif %}
-		
-				{% if  pr.image.url %}
-					<p>Imagen <img src="{% static object.pr_image.url %}" /> </p>
-				{% endif %}
-		
-				{% if gallery %}
-					<div>
-						<p> Galeria de Imagenes </p>
-						<ul>
-						{% for gal in gallery %}
-							<li> <img src="{% static gal.image.url %}" /> </li>
-						{% endfor %}
-						</ul>
-					</div>
-				{% endif %}
-			  </div>
-			</div>
-		{% else %}
+	<div class="col-xs-9">
+		<div class="row">
 			<div class="form-group col-xs-12">
-				<p>Error no se encontro el producto seleccionado....</p>
+				<a class="btn btn-default" href="{% url "productos:list" %}">
+					<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Listado Productos
+				</a>
 			</div>
-		{% endif %}
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+			{% if product %}
+				<div class="panel panel-default">
+				  <div class="panel-heading text-center">
+				  	<p class="panel-title">Nombre: {{ product.name }} </p>
+				  </div>
+				  <div class="panel-body">
+				  	<p>Descripción: {{ object.description }} </p>
+					{% if object.category %}
+						<p>Categoria: {{ object.category.ct_name }} </p>
+					{% endif %}
+
+					{% if  object.image.url %}
+						<p>Imagen <img src="{% static object.image.url %}" /> </p>
+					{% endif %}
+
+					{% if gallery %}
+						<div>
+							<p> Galeria de Imagenes </p>
+							<ul>
+							{% for gal in gallery %}
+								<li> <img src="{% static gal.image.url %}" /> </li>
+							{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+				  </div>
+				</div>
+			{% else %}
+				<div class="form-group col-xs-12">
+					<p>Error no se encontro el producto seleccionado....</p>
+				</div>
+			{% endif %}
+			</div>
 		</div>
 	</div>
 {% endblock%}

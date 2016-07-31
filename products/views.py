@@ -69,7 +69,7 @@ class ProductDetail(DetailView):
         context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Detalle del producto'
-        context['gallery'] = ImageProduct.objects.filter(producto=self.object)
+        context['gallery'] = ImageProduct.objects.filter(producto=self.object)  
         return context
 
 
@@ -79,12 +79,12 @@ class ProductCreat(CreateView):
     form_class = ProductForm
     template_name = 'products/prFormulario.html'
     success_url = reverse_lazy('productos:list')
-    
+
 #     def form_valid(self, form):
 #         #jaja = 'Hola qui estamoss'
 #         #sformulario = super(ProductCreat, self).clean()
 #         #return ProductCreat.form_valid(self, form)(self)
-#         
+#
 #         return super(ProductCreat, self).form_valid(form)
 
     def get_context_data(self, *args, **kwargs):
@@ -102,7 +102,7 @@ class ProducrtUpdate(UpdateView):
     #fields = ['name', 'description', 'image', 'category']
     template_name = 'products/prFormulario.html'
     success_url = reverse_lazy('productos:list')
-    
+
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProducrtUpdate, self).get_context_data(*args,**kwargs)

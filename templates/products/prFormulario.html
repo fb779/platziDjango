@@ -1,4 +1,4 @@
-{% extends "index.html"|pjax:request %}
+{% extends "products/prIndex.html"|pjax:request %}
 {% load static %}
 
 {% block cabecera %}
@@ -6,47 +6,47 @@
 {% endblock %}
 
 {% block espaciotrabajo %}
-	<div class="row">
-		<div class="form-group col-xs-12">
-			<a class="btn btn-default " href="{% url "productos:list" %}"> 
-				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Listado Productos
-			</a>
+	<div class="col-xs-9">
+		<div class="row">
+			<div class="form-group col-xs-12">
+				<a class="btn btn-default " href="{% url "productos:list" %}">
+					<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Listado Productos
+				</a>
+			</div>
 		</div>
+
+		<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+			<div class="row">
+				<div class="form-group col-xs-3">
+					<label for=""> {{ form.name.label }} </label>
+					{{ form.name.errors }} {{ form.name }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-5">
+					<label for=""> {{form.description.label}} </label>
+					{{form.description.errors}}
+					{{form.description}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-3">
+					<label for=""> {{form.category.label}} </label>
+					{{form.category.errors}} {{form.category}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-12">
+					<label for=""> {{form.image.label}} </label>
+					{{form.image.errors}} {{form.image}}
+				</div>
+				 <!--input type="submit" value="Guardar" /-->
+			 </div>
+			 <div class="row">
+			 	<div class="form-group col-xs-12">
+			 	 	<input type="submit" class="btn btn-default" value="{{ bottonTitle }}" />
+			 	 </div>
+			 </div>
+		</form>
 	</div>
-	
-	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
-		<div class="row">
-			<div class="form-group col-xs-3">
-				<label for=""> {{ form.name.label }} </label>
-				{{ form.name.errors }} {{ form.name }} 
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-xs-5">
-				<label for=""> {{form.description.label}} </label>
-				{{form.description.errors}}
-				{{form.description}} 
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-xs-3">
-				<label for=""> {{form.category.label}} </label>
-				{{form.category.errors}} {{form.category}} 
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-xs-3">
-				<label for=""> {{form.image.label}} </label>
-				{{form.image.errors}} {{form.image}} 
-			</div>
-			
-			 <!--input type="submit" value="Guardar" /-->
-		 </div>
-		 <div class="row">
-		 	<div class="form-group col-xs-12">
-		 	 	<input type="submit" class="btn btn-default" value="{{ bottonTitle }}" />
-		 	 </div>
-		 </div>
-	</form>
-	
 {% endblock %}

@@ -1,21 +1,19 @@
-{% extends "index.html"|pjax:request %}
+{% extends "products/prIndex.html"|pjax:request %}
 {% load static %}
 
-{% block cabecera %}
-	<h3>{{ seconTitle }}</h3>
-{% endblock%}
-
 {% block espaciotrabajo %}
-	<p> <a href="{% url 'productos:list' %}">Listado de productos</a> </p>
-	<div>
-		<section>
-			<article>
-				Primer contenido del articulo uno
-			</article>
-			
-			<article>
-				Contenido del articulo dos
-			</article>
-		</section>
+	<div class="col-xs-9">
+		<p> <a href="{% url 'productos:list' %}">Listado de productos</a> </p>
+		<div>
+			<section>
+				<article>
+					Primer contenido del articulo uno
+				</article>
+
+				<article>
+					Contenido del articulo dos
+				</article>
+			</section>
+		</div>
 	</div>
 {% endblock%}
