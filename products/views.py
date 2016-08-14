@@ -56,7 +56,7 @@ class ProductListView(ListView):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         context['prActive'] = 'active'
         context['title'] = title
-        context['seconTitle'] = 'Listado de productos'
+        context['seconTitle'] = 'Listado de productos creados'
         return context
 
 
