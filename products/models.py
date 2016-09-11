@@ -16,14 +16,14 @@ class Category(models.Model):
     def __unicode__(self):
         return "%s" % self.ct_name
 
-#     def __str__(self):
-#         return "%s" % self.ct_name
+    def __str__(self):
+        return "%s" % self.ct_name
 
 
 class Product(models.Model):
     name = models.CharField(max_length=255, blank=False)
-    description = models.TextField(max_length=4000, blank=True)
-    image = models.ImageField(upload_to=upload, blank=False)
+    description = models.TextField(max_length=4000, blank=False)
+    image = models.ImageField(upload_to=upload, blank=True)
     category = models.ForeignKey(Category, blank=False, null=True)
 
     class Meta:
@@ -32,8 +32,8 @@ class Product(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
-#     def __str__(self):
-#         return "%s" % self.pr_name
+    def __str__(self):
+        return "%s" % self.pr_name
 
 
 class ImageProduct(models.Model):

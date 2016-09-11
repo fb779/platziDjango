@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import (render, get_object_or_404)
 from django.template import loader
 from django.http import (HttpResponse, HttpResponseRedirect)
@@ -36,7 +37,6 @@ class ProductView(TemplateView):
         context['seconTitle'] = 'Vista generica para visualizar información'
         return context
 
-
 class ProductListView(ListView):
     model = Product
     template_name = 'products/prList.html'
@@ -45,7 +45,7 @@ class ProductListView(ListView):
 #     def get(self, request, *args, **kwargs):
 #         self.object = self.get_object(queryset=Product.objects.all())
 #         return super(ProductListView, self).get(request, *args, **kwargs)
-#
+
     def get_queryset(self, *args, **kwargs):
         qs = self.model.objects.filter()
         #qs = super(ProductListView, self).get_queryset(*args, **kwargs).order_by('-name')
@@ -69,7 +69,7 @@ class ProductDetail(DetailView):
         context['prActive'] = 'active'
         context['title'] = title
         context['seconTitle'] = 'Detalle del producto'
-        context['gallery'] = ImageProduct.objects.filter(producto=self.object)  
+        context['gallery'] = ImageProduct.objects.filter(producto=self.object)
         return context
 
 

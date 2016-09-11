@@ -16,13 +16,14 @@ context = {'clActive':'active'}
 def fn_index(request):
     #product = Product.objects.order_by('id')
     template = loader.get_template('home/hoIndex.html')
+
 #     context = {
 #         'clActive':'active',
 #         'title': 'Ejercicio DJango',
 #         'seconTitle': 'view cargada desde una funcion',
 #         #'product': product
 #     }
-    context['title'] = 'Ejercicio DJango'
+    context['title'] = 'Ejercicio DJango Function base views'
     context['seconTitle'] = 'view cargada desde una funcion'
     return HttpResponse(template.render(context, request))
 

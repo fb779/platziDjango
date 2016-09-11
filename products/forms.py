@@ -6,6 +6,12 @@ from .models import (Category, Product, ImageProduct)
 
 cl_inputs = 'form-control'
 
+class ProductAdminForm(ModelForm):
+#     name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Digite el nompre del producto completo'}))
+#     description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Realice una breve descripcion del producto'}))
+    class Meta:
+        model = Product
+        fields = ('name','description')
 
 class ProductForm(ModelForm):
 #     name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Digite el nompre del producto completo'}))
@@ -17,7 +23,7 @@ class ProductForm(ModelForm):
         widgets = {
             'name': forms.TextInput(attrs = {
                 'id': 'nomProduct',
-                'placeholder': u'Nombres completos',
+                'placeholder': 'Nombres completos',
                 'class': cl_inputs
             }),
             'description': forms.Textarea(attrs={
@@ -29,24 +35,31 @@ class ProductForm(ModelForm):
                 'id': 'catProduct',
                 'class': cl_inputs
             }),
-            'image': '',
-            # 'image': forms.FileInput(attrs={
-            #     'id': 'img',
-            #     'class': cl_inputs,
-            #
-            # }),
         }
+
+    def __init__(self, *args, **kwargs):
+        super(ProductForm, self).__init__(*args, **kwargs)
+        # adicionar mensajes personalizados de los errores
+        self.fields['name'].error_messages = {'required': 'El nombre no puede estar vacio!'}
+        self.fields['description'].error_messages = {'required': 'La descripcion no puede estar vacia!'}
+
+    # def clean_name(self):
+    #     name = self.cleaned_data.get('name')
+    #     if name == '':
+    #         raise forms.ValidationError("El nombre no puede estar vacio")
+    #     return name
 
     def clean(self):
         self.cleaned_data = super(ProductForm, self).clean()
         nombre = self.cleaned_data.get('name')
         descri = self.cleaned_data.get('description')
+        print self.cleaned_data
 
-#         if nombre == '':
-#             self._errors['name'] = self.error_class(['Este campo es obligatorio.'])
-#
-#         if descri == '':
-#             self._errors['description'] = self.error_class(['El campo de descripcion es obligatorio'])
+        # if nombre == '':
+        #     self._errors['name'] = self.error_class(['Este campo es obligatorio.'])
+
+        # if descri == '':
+        #     self._errors['description'] = self.error_class(['El campo de descripcion es obligatorio'])
 
         return self.cleaned_data
 
