@@ -42,6 +42,9 @@ class ProductForm(ModelForm):
         # adicionar mensajes personalizados de los errores
         self.fields['name'].error_messages = {'required': 'El nombre no puede estar vacio!'}
         self.fields['description'].error_messages = {'required': 'La descripcion no puede estar vacia!'}
+        self.fields['category'].error_messages = {'required': 'Debe seleccionar una categoria!'}
+
+
 
     # def clean_name(self):
     #     name = self.cleaned_data.get('name')

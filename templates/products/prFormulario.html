@@ -16,8 +16,22 @@
 		</div>
 
 		<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+			{% if form.errors %}
+				<div class="row well">
+					<div class="col-xs-12">
+						<!-- Error messaging -->
+						<p>Tiene errores en la informaci&oacute;n ingresada. Por favor corrija los siguentes campos:</p>
+						{{ form.non_field_errors }}
+							{% for field in form %}
+								{% if field.errors %}<p>{{ field.label }}: {{ field.errors|striptags }}</p>{% endif %}
+							{% endfor %}
+						<!-- /Error messaging -->
+					</div>
+				</div>
+			{% endif %}
+
 			<div class="row">
-				<div class="form-group col-xs-3">
+				<div class="form-group col-xs-5">
 					<label for=""> {{ form.name.label }} </label>
 					{{ form.name.errors }} {{ form.name }}
 				</div>
@@ -25,14 +39,14 @@
 			<div class="row">
 				<div class="form-group col-xs-5">
 					<label for=""> {{form.description.label}} </label>
-					{{form.description.errors}}
+					{#{form.description.errors}#}
 					{{form.description}}
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-xs-3">
+				<div class="form-group col-xs-5">
 					<label for=""> {{form.category.label}} </label>
-					{{form.category.errors}} {{form.category}}
+					{#{form.category.errors}#} {{form.category}}
 				</div>
 			</div>
 			<div class="row">
@@ -40,13 +54,13 @@
 					<label for=""> {{form.image.label}} </label>
 					{{form.image.errors}} {{form.image}}
 				</div>
-				 <!--input type="submit" value="Guardar" /-->
-			 </div>
-			 <div class="row">
-			 	<div class="form-group col-xs-12">
-			 	 	<input type="submit" class="btn btn-default" value="{{ bottonTitle }}" />
-			 	 </div>
-			 </div>
+				<!--input type="submit" value="Guardar" /-->
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-12">
+					<input type="submit" class="btn btn-default" value="{{ bottonTitle }}" />
+				</div>
+			</div>
 		</form>
 	</div>
 {% endblock %}
