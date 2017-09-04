@@ -15,7 +15,7 @@
 			</div>
 		</div>
 
-		<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+		<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
 			{% if form.errors %}
 				<div class="row well">
 					<div class="col-xs-12">
@@ -29,15 +29,24 @@
 					</div>
 				</div>
 			{% endif %}
-
+			<!-- <div class="row" style="background: #ccc;">
+				<div class="form-group col-xs-6">
+					<label for="">Nombre del campo</label>
+					<input class="form-control" type="text" name="" value="" placeholder="">
+				</div>
+				<div class="form-group col-xs-6">
+					<label for="">otro campo</label>
+					<input class="form-control" type="text">
+				</div>
+			</div> -->
 			<div class="row">
-				<div class="form-group col-xs-5">
+				<div class="form-group col-xs-12">
 					<label for=""> {{ form.name.label }} </label>
-					{{ form.name.errors }} {{ form.name }}
+					{#{ form.name.errors }#} {{ form.name }}
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-xs-5">
+				<div class="form-group col-xs-6">
 					<label for=""> {{form.description.label}} </label>
 					{#{form.description.errors}#}
 					{{form.description}}

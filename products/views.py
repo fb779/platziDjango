@@ -48,8 +48,8 @@ class ProductListView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         qs = self.model.objects.filter()
-        #qs = super(ProductListView, self).get_queryset(*args, **kwargs).order_by('-name')
-        #qs = super(ProductListView, self).get_queryset(*args, **kwargs).filter(name__startswith='o').order_by('-name')
+        # qs = super(ProductListView, self).get_queryset(*args, **kwargs).order_by('-name')
+        # qs = super(ProductListView, self).get_queryset(*args, **kwargs).filter(name__startswith='o').order_by('-name')
         return qs
 
     def get_context_data(self, *args, **kwargs):
